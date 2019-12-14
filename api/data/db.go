@@ -34,7 +34,7 @@ func ConnectDB() (*gorm.DB, error) {
 	return gorm.Open(dbDriver, dbURI)
 }
 
-// InitDB - Incaliza la base de datos
+// InitDB - Inicializa la base de datos
 func InitDB() {
 	dbCnx, err := ConnectDB()
 	if err == nil {
