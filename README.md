@@ -1,5 +1,6 @@
 # picture_backend
-__Api creada en [GO](https://golang.org/) para una red social de imágenes, con comentarios y likes, parte de servidor__
+__Api creada en [GO](https://golang.org/) para una red social de imágenes, con comentarios y likes. Parte de servidor__  
+Directorio public con la __primera__ versión del Front no utilizado.
 
 ## Librerías externas utilizadas:
   "[github.com/urfave/negroni](https://github.com/urfave/negroni)" - Middleware para net/http (logs, panics recovery y static en "public")  
