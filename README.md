@@ -58,9 +58,9 @@ Likes de las imágenes. Solo un like por foto del mismo usuario.
 ### Gallery/PicGallery  
 Galerías de fotos de un usuario (gallery) y relación entre pictures/galleries (picgallery)  
 
-"/gallery" - __post__ - Crea una galería de fotos vacía
-"/gallery/{id:[0-9]+}" - __delete__ - Borra una galería de fotos, junto a todos sus picgalleries
-"/gallery/{gal:[0-9]+}/{pic:[0-9]+}" - __delete__ - Quita una foto de dentro de una galería (no borra la foto)
-"/gallery/{gal:[0-9]+}/{pic:[0-9]+}" - __post__ - Mete una foto dentro de una galería
-"/gallery/{id:[0-9]+}"  __put__ - Edita el título de una galería
-"/gallery/{id:[0-9]+}"  __get__ - Lista todas las fotos de una galería
+"/gallery" - __post__ - Crea una galería de fotos vacía  
+"/gallery/{id:[0-9]+}" - __delete__ - Borra una galería de fotos, junto a todos sus picgalleries  
+"/gallery/{gal:[0-9]+}/{pic:[0-9]+}" - __delete__ - Quita una foto de dentro de una galería (no borra la foto)  
+"/gallery/{gal:[0-9]+}/{pic:[0-9]+}" - __post__ - Mete una foto dentro de una galería  
+"/gallery/{id:[0-9]+}"  __put__ - Edita el título de una galería  
+"/gallery/{id:[0-9]+}"  __get__ - Lista todas las fotos de una galería  
