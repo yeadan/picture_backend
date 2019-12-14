@@ -42,10 +42,10 @@ Estructura de las imágenes, con sus metadatos (picture) y donde están almacena
 
 "/images"  - __post__ - Al pasarle un JPEG crea una imagen y una picture. Se almacenan en la carpeta ./images  
 "/images" - __get__ - Listado ordenado de todas las imágenes. Las más recientes primero  
-"/images/{id:[0-9]+}" - __put__ Añade un título y una descripción a la imagen  
-"/images/{id:[0-9]+}" - __get__ Listado de las imágenes de un usuario  
-"/image/{id:[0-9]+}" - __get__ Ver los detalles de una imagen en concreto  
-"/images/{id:[0-9]+}" - __delete__ Borra una imagen (image y picture)  
+"/images/{id:[0-9]+}" - __put__ - Añade un título y una descripción a la imagen  
+"/images/{id:[0-9]+}" - __get__ - Listado de las imágenes de un usuario  
+"/image/{id:[0-9]+}" - __get__ - Ver los detalles de una imagen en concreto  
+"/images/{id:[0-9]+}" - __delete__ - Borra una imagen (image y picture)  
 "/images/avatar"  - __post__ - Crea una imagen para el avatar de un usuario. Se almacena en la carpeta ./images/avatars  
 
 ### Comment  
@@ -56,7 +56,7 @@ Comentarios de las imágenes. Una foto puede tener todos los comentarios que se 
 "/comment/{id:[0-9]+}" - __delete__ - Borra un comentario  
 
 ### Like
-Likes de las imágenes. Solo un like por foto del mismo usuario.  
+Likes de las imágenes. Solo un like por foto (del mismo usuario).  
 
 "/like" - __post__ - Crea un like en una imagen  
 "/like/{id:[0-9]+}" - __delete__ - Borra un like   
