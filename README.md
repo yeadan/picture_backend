@@ -1,7 +1,7 @@
 # picture_backend
-__Api para una red social de imágenes, con comentarios y likes, parte de servidor__
+__Api creada en [GO](https://golang.org/) para una red social de imágenes, con comentarios y likes, parte de servidor__
 
-## Utiliza:
+## Librerías externas utilizadas:
   "[github.com/urfave/negroni](https://github.com/urfave/negroni)" - Middleware para net/http (logs, panics recovery y static en "public")  
   "[github.com/jinzhu/gorm](https://github.com/jinzhu/gorm)" - ORM para Postgres  
   "[github.com/gorilla/mux](https://github.com/gorilla/mux)" - Router  
