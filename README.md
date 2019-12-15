@@ -33,7 +33,7 @@ Perfiles de usuario con roles (anonymous/user/admin)
 "/users/{id:[0-9]+"   - __put__  - Editar un usuario. No se puede cambiar ID ni username. El role solo lo puede cambiar un admin  
 
 #### Roles  
-__admin__: Tiene control sobre todo, menos para crear contenido como si fuera otro usuario. Puede borrar y editar lo que suben los demás.  
+__admin__: Tiene control sobre todo, menos para crear contenido como si fuera otro usuario. Puede borrar y editar lo que suben los demás. NO puede borrar galerías de otros usuarios  
 __user__: No puede listar todos los usuarios ni borrar o editar el contenido de los otros usuarios.  
 __anonymous(u otros)__: Usuario de prueba. Solamente puede editar su propia información, ver todas las fotos, ver los detalles de una foto concreta y buscar las fotos de un usuario.  
 
