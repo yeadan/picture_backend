@@ -1,0 +1,1500 @@
+{
+	"info": {
+		"_postman_id": "7b2bd5b3-e5b5-47c9-b58d-87fa52611091",
+		"name": "Image-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Signup admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f78bc1bc-f243-4971-8f24-0bde4098f846",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "70f8b56f-e8a1-4190-8fdd-cd54ffd65629",
+								"exec": [
+									"var currentDate = new Date();",
+									"pm.environment.set(\"REG\",  currentDate)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"daniel\",\n    \"password\": \"boschvega\",\n    \"full_name\": \"Daniel Bosch\",\n    \"role\": \"admin\",\n    \"registered\":\"{{REG}}\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signup user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f78bc1bc-f243-4971-8f24-0bde4098f846",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "70f8b56f-e8a1-4190-8fdd-cd54ffd65629",
+								"exec": [
+									"var currentDate = new Date();",
+									"pm.environment.set(\"REG\",  currentDate)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"sergio\",\n    \"password\": \"boschvega\",\n    \"full_name\": \"Sergio Bosch\",\n    \"role\": \"user\",\n    \"registered\":\"{{REG}}\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signup anoymous",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f78bc1bc-f243-4971-8f24-0bde4098f846",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "70f8b56f-e8a1-4190-8fdd-cd54ffd65629",
+								"exec": [
+									"var currentDate = new Date();",
+									"pm.environment.set(\"REG\",  currentDate)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"mar\",\n    \"password\": \"boschvega\",\n    \"full_name\": \"Mar Bosch\",\n    \"role\": \"anonymous\",\n    \"registered\":\"{{REG}}\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9092dce4-40fe-4c68-a1eb-1299ee7b1c7c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"To have token\", function () {\r",
+									" var jsonData = pm.response.json();\r",
+									" pm.expect(jsonData).to.have.property(\"token\");\r",
+									" pm.environment.set(\"TOKEN\", jsonData.token);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"daniel\",\n    \"password\": \"boschvega\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/users/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "257c4b10-a286-4d26-b3ab-d4d2dd49e2c3",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"To have token\", function () {\r",
+									" var jsonData = pm.response.json();\r",
+									" pm.expect(jsonData).to.have.property(\"token\");\r",
+									" pm.environment.set(\"TOKEN\", jsonData.token);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\t\"username\": \"sergio\",\n\t\"password\": \"boschvega\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/users/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login anonymous",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "17d6631c-2a9f-4f5b-91a3-c0db0a3d8e7f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"To have token\", function () {\r",
+									" var jsonData = pm.response.json();\r",
+									" pm.expect(jsonData).to.have.property(\"token\");\r",
+									" pm.environment.set(\"TOKEN\", jsonData.token);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\t\"username\": \"mar\",\n\t\"password\": \"boschvega\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/users/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4a7f1529-9d68-40c2-a048-819068d993cd",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "159a3866-8e3d-4e68-87b2-1c66bb753a14",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f7221bd4-ffeb-45a8-ace8-fd264c52168d",
+								"exec": [
+									"pm.test(\"Status code is 204\", function() {\r",
+									"  pm.response.to.have.status(204);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"boschvega\",\n    \"full_name\": \"Sergio Bosch Vega\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/users/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Comentarios",
+			"item": [
+				{
+					"name": "Create comment",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "99d35e5e-6518-4664-8b54-a0bb2814b189",
+								"exec": [
+									"var currentDate = new Date();",
+									"pm.environment.set(\"REG\",  currentDate)"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "521cae25-6a1f-465a-8a30-36dac18e2654",
+								"exec": [
+									"pm.test(\"Status code is 201\", function() {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"picture_id\": 1,\n\t\"comment\": \"Este es el comentario creado\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/comment",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Comment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1b72e926-85df-415f-9125-a4bd02d8de8b",
+								"exec": [
+									"pm.test(\"Status code is 204\", function() {\r",
+									"  pm.response.to.have.status(204);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/comment/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comment",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Comment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a3b8ded7-c8ab-4ed5-b042-716e417ce4f5",
+								"exec": [
+									"pm.test(\"Status code is 204\", function() {\r",
+									"  pm.response.to.have.status(204);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"created\": \"{{REG}}\",\n\t\"comment\": \"Este es el comentario editado\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/comment/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"comment",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Imágenes",
+			"item": [
+				{
+					"name": "Crear Imagen/picture",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "61c25097-8653-4f1d-ae2f-e5bf7f31e6b6",
+								"exec": [
+									"pm.test(\"Status code is 201\", function() {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/C:/Users/Sergio/Pictures/nirvana_015-preview.jpg"
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/images",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"images"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Añadir título y comentario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "507f0267-03fb-4c6b-8497-309af521779d",
+								"exec": [
+									"pm.test(\"Status code is 204\", function() {\r",
+									"  pm.response.to.have.status(204);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Title\": \"Nuevo titulo de la foto\",\r\n    \"Description\": \"Aqui tenemos la descripción nueva de la foto\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/images/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"images",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Image/Picture",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "18b56a27-5458-4bf6-bdc5-a84f4ecd00ea",
+								"exec": [
+									"pm.test(\"Status code is 204\", function() {\r",
+									"  pm.response.to.have.status(204);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/images/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"images",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Avatar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bc5f88c4-ab22-4605-88e3-0aea825e9bc5",
+								"exec": [
+									"pm.test(\"Status code is 201\", function() {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/C:/Users/Sergio/Pictures/nirvana_015-preview.jpg"
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/images/avatar",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"images",
+								"avatar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar fotos de un usuario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fe9c42e8-55dd-40cf-a6b3-fc48d5aa7625",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/images/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"images",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar todas las fotos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5600d6d8-05c8-4222-9bdb-18704b5caf1b",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/images",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"images"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detalle de foto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e890a900-fe8a-4454-88c0-43a63e21d1cf",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/image/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"image",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Likes",
+			"item": [
+				{
+					"name": "Create Like",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "165824da-8835-4c87-a531-d4b34742ea7a",
+								"exec": [
+									"pm.test(\"Status code is 201\", function() {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"picture_id\": 1,\n\t\"liked\": \"{{REG}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/like",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"like"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Like (Unlike)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a620f638-3872-4db6-a81f-573c67f5c38e",
+								"exec": [
+									"pm.test(\"Status code is 204\", function() {\r",
+									"  pm.response.to.have.status(204);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/like/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"like",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Galerías",
+			"item": [
+				{
+					"name": "Crear Galería",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "96c4f2de-4e9f-4e3a-be4e-797d9a9db6b9",
+								"exec": [
+									"pm.test(\"Status code is 201\", function() {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Este es título de la galería\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/gallery",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gallery"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar Galería",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "345c6277-1a63-45f0-9b41-8d39ec5d742f",
+								"exec": [
+									"pm.test(\"Status code is 204\", function() {\r",
+									"  pm.response.to.have.status(204);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/gallery/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gallery",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Añadir foto a una galería",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dc193754-367a-4da4-984a-40d021fd5443",
+								"exec": [
+									"pm.test(\"Status code is 201\", function() {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/gallery/2/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gallery",
+								"2",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar foto de una galería",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dc53641d-ecd3-42df-8dd6-a3048106bcd0",
+								"exec": [
+									"pm.test(\"Status code is 204\", function() {\r",
+									"  pm.response.to.have.status(204);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/gallery/1/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gallery",
+								"1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar galería",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1fb8134e-8b1a-445a-a410-6025cd9112bf",
+								"exec": [
+									"pm.test(\"Status code is 204\", function() {\r",
+									"  pm.response.to.have.status(204);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Este es título modificado de la galería\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/gallery/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gallery",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar todas las fotos de una galería",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3df6863e-d15a-4dcb-b8ba-4b90bd3d6ab1",
+								"exec": [
+									"pm.test(\"Status code is 200\", function() {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/gallery/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gallery",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
