@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"os"
 	"strconv"
 	"time"
-	"os"
 
 	"github.com/gorilla/mux"
-	"github.com/graux/image-manager"
+	image_manger "github.com/graux/image-manager"
 	"github.com/yeadan/proyect-image/api/data"
 	"github.com/yeadan/proyect-image/api/middlewares"
 	"github.com/yeadan/proyect-image/api/models"
@@ -32,7 +32,7 @@ func GetRoutesImages(r *mux.Router) {
 
 //getAllPictures - Devuelve todas las imágenes ordenadas por recientes. Sin detalles del usuario
 func getAllPictures(w http.ResponseWriter, r *http.Request) {
-	if userValid := r.Context().Value(middlewares.UserKey); userValid != nil { 
+	if userValid := r.Context().Value(middlewares.UserKey); userValid != nil {
 		db, _ := data.ConnectDB()
 		defer db.Close()
 		jsonTasks, err := json.Marshal(models.GetPictures(db))
@@ -51,6 +51,7 @@ func getAllPictures(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 }
+
 // deleteImage - Borra la imagen, el picture y decrementa en user el número de pictures
 //Solo podrá borrarla el propietario o un admin
 func deleteImage(w http.ResponseWriter, r *http.Request) {
@@ -72,7 +73,7 @@ func deleteImage(w http.ResponseWriter, r *http.Request) {
 					models.DeletePicture(picture, db)
 					if image != nil { // Si ya era nil, que no debería, ya no existe así que no devolvemos un error
 						err := os.Remove(fmt.Sprintf("images/%s.jpg", image.ThumbURL))
-						if err !=nil {
+						if err != nil {
 							os.Remove(fmt.Sprintf("images/avatars/%s.jpg", image.ThumbURL))
 							os.Remove(fmt.Sprintf("images/avatars/%s.jpg", image.LowResURL))
 							os.Remove(fmt.Sprintf("images/avatars/%s.jpg", image.HighResURL))
@@ -123,9 +124,9 @@ func createImageAvatar(w http.ResponseWriter, r *http.Request) {
 				if err == nil {
 					//Creamos image
 					image := new(models.Image)
-					image.ThumbURL = fmt.Sprintf("avatars/%s",uuids[0])
-					image.LowResURL = fmt.Sprintf("avatars/%s",uuids[1])
-					image.HighResURL = fmt.Sprintf("avatars/%s",uuids[2])
+					image.ThumbURL = fmt.Sprintf("avatars/%s", uuids[0])
+					image.LowResURL = fmt.Sprintf("avatars/%s", uuids[1])
+					image.HighResURL = fmt.Sprintf("avatars/%s", uuids[2])
 					defer db.Close()
 					models.CreateImage(image, db)
 					//Creamos picture
@@ -134,13 +135,13 @@ func createImageAvatar(w http.ResponseWriter, r *http.Request) {
 					picture.Image = *image
 					picture.ImageID = image.ImageID
 					picture.Created = time.Now()
-					picture.Title ="avatar"
+					picture.Title = "avatar"
 					//actualizamos el user
-					user := models.GetUser(picture.UserID,  db)
+					user := models.GetUser(picture.UserID, db)
 					user.NumPictures++
 					user.Avatar = &image.ImageID
-					models.EditUser(user,  db)
-					picture.User = models.GetUser(userValid.(*models.User).UserID,  db)
+					models.EditUser(user, db)
+					picture.User = models.GetUser(userValid.(*models.User).UserID, db)
 					models.CreatePicture(picture, db)
 					//Devolveremos por json la picture creada y el usuario actualizado, para ver que se ha creado bien
 					w.Header().Set("Content-Type", "application/json")
@@ -160,6 +161,7 @@ func createImageAvatar(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 }
+
 // getPicturesUser - Busca las pictures de un usuario, sin detalles del usuario
 func getPicturesUser(w http.ResponseWriter, r *http.Request) {
 	if userValid := r.Context().Value(middlewares.UserKey); userValid != nil { //  *models.User
@@ -221,10 +223,10 @@ func createImage(w http.ResponseWriter, r *http.Request) {
 					picture.Image = *image
 					picture.ImageID = image.ImageID
 					picture.Created = time.Now()
-					user := models.GetUser(picture.UserID,  db)
+					user := models.GetUser(picture.UserID, db)
 					user.NumPictures++
-					models.EditUser(user,  db)
-					picture.User = models.GetUser(userValid.(*models.User).UserID,  db)
+					models.EditUser(user, db)
+					picture.User = models.GetUser(userValid.(*models.User).UserID, db)
 					models.CreatePicture(picture, db)
 					w.Header().Set("Location", fmt.Sprintf("/image/%d", image.ImageID))
 					w.Header().Set("Content-Type", "application/json")
@@ -232,19 +234,18 @@ func createImage(w http.ResponseWriter, r *http.Request) {
 					jsonUse, _ := json.Marshal(picture)
 					w.Write(jsonUse)
 
-				 } else {
-						w.WriteHeader(http.StatusBadRequest)
+				} else {
+					w.WriteHeader(http.StatusBadRequest)
 				}
 			} else {
 				w.WriteHeader(http.StatusForbidden)
 			}
 
-			} else {
+		} else {
 			w.WriteHeader(http.StatusBadRequest)
 		}
 	}
 }
-
 
 //No tiene sentido editar las images, así que solo se utilizará para editar títulos y descripciones del picture
 func editImage(w http.ResponseWriter, r *http.Request) {
@@ -253,7 +254,7 @@ func editImage(w http.ResponseWriter, r *http.Request) {
 			id, _ := strconv.Atoi(idStr)
 			db, _ := data.ConnectDB()
 			defer db.Close()
-			picture := models.GetPicture(id, db)
+			picture := models.GetPictureID(id, db)
 			if picture != nil {
 				errAuth := lib.UserAllowed(userValid.(*models.User), &picture.UserID, lib.GetString("admin"), w)
 				if errAuth == nil {
@@ -261,7 +262,7 @@ func editImage(w http.ResponseWriter, r *http.Request) {
 					if err == nil {
 						edited := new(models.Picture)
 						err := json.Unmarshal(jsonBytes, edited)
-						if err == nil { 
+						if err == nil {
 							picture.Title = edited.Title
 							picture.Description = edited.Description
 							models.EditPicture(picture, db)
@@ -283,6 +284,7 @@ func editImage(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 }
+
 // getPicture - Enseña la picture con detalle (de usuario y de image)
 func getPicture(w http.ResponseWriter, r *http.Request) {
 	if userValid := r.Context().Value(middlewares.UserKey); userValid != nil { //  *models.User
