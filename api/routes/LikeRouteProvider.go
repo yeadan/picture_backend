@@ -32,7 +32,7 @@ func deleteLike(w http.ResponseWriter, r *http.Request) {
 				errAuth := lib.UserAllowed(userValid.(*models.User), &like.UserID, nil, w)
 				if errAuth == nil {
 					models.DeleteLike(like, db)
-					picture := models.GetPicture(like.PictureID,db)
+					picture := models.GetPictureID(like.PictureID,db)
 					picture.NumLikes--
 					models.EditPicture(picture,db)
 					user := models.GetUser(like.UserID,db)
@@ -63,7 +63,7 @@ func createLike(w http.ResponseWriter, r *http.Request) {
 					like.UserID = userValid.(*models.User).UserID
 					db, _ := data.ConnectDB()
 					defer db.Close()			
-					picture := models.GetPicture(like.PictureID,db)
+					picture := models.GetPictureID(like.PictureID,db)
 					if picture != nil {
 						if models.ExistLike(like.UserID,like.PictureID,db) {
 							w.WriteHeader(http.StatusBadRequest)

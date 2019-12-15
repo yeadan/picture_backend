@@ -32,7 +32,7 @@ func deleteComment(w http.ResponseWriter, r *http.Request) {
 				errAuth := lib.UserAllowed(userValid.(*models.User), &comment.UserID, lib.GetString("admin"), w)
 				if errAuth == nil {
 					models.DeleteComment(comment, db)
-					picture := models.GetPicture(comment.PictureID,db)
+					picture := models.GetPictureID(comment.PictureID,db)
 					picture.NumComments--
 					models.EditPicture(picture,db)
 					user := models.GetUser(comment.UserID,db)
@@ -63,7 +63,7 @@ func createComment(w http.ResponseWriter, r *http.Request) {
 					db, _ := data.ConnectDB()
 					defer db.Close()
 					//aumentamos en 1 el número de comentarios de picture y user
-					picture := models.GetPicture(comment.PictureID,db)
+					picture := models.GetPictureID(comment.PictureID,db)
 					if picture != nil {
 						models.CreateComment(comment, db)
 						picture.NumComments++
