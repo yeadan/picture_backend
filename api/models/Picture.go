@@ -41,6 +41,15 @@ func GetPicture(id int, db *gorm.DB) *Picture {
 	}
 	return nil
 }
+
+func GetPictureID(id int, db *gorm.DB) *Picture {
+	picture := new(Picture)
+	db.Find(picture, id)
+	if picture.PictureID == id {
+		return picture
+	}
+	return nil
+}
 func CreatePicture(picture *Picture, db *gorm.DB) {
 	db.Create(picture)
 }
