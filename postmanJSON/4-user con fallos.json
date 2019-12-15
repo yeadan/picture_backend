@@ -1,0 +1,368 @@
+{
+	"id": "a9a2da54-5fe4-4e3d-9630-afeeb0a554bc",
+	"name": "Image-api",
+	"allTests": [],
+	"timestamp": "2019-12-15T19:35:36.957Z",
+	"collection_id": "7b2bd5b3-e5b5-47c9-b58d-87fa52611091",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "0",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "7b2bd5b3-e5b5-47c9-b58d-87fa52611091",
+		"name": "Image-api",
+		"order": [],
+		"folders_order": [
+			"00bee54c-3edf-47d7-888c-7db01b7e4ed1",
+			"0e030bb4-6326-4626-b845-fc409ef59c7e",
+			"7d77773f-2029-49a0-bcbb-6060510834b3",
+			"ac934299-04ec-4d3c-8d12-c658ca319ac0",
+			"832f947c-a6df-4905-8618-a02255fced3d"
+		],
+		"isFavorite": false
+	},
+	"folder": null,
+	"environment": null,
+	"globals": null,
+	"results": [
+		{
+			"name": "Login user",
+			"id": "9e7d8439-49cb-49d8-a4e5-9ff2bc82d92a",
+			"url": "localhost:8080/users/login",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"To have token": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"To have token": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"52"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"To have token": true
+				}
+			],
+			"time": "52",
+			"totalRequestTime": "52",
+			"iterationResults": {}
+		},
+		{
+			"name": "Update User",
+			"id": "2a480020-ac0b-448f-8136-5c313bca2573",
+			"url": "localhost:8080/users/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"tests": {
+				"Status code is 204": false,
+				"Response time is less than 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"84"
+			],
+			"allTests": [
+				{
+					"Status code is 204": false,
+					"Response time is less than 200ms": true
+				}
+			],
+			"time": "84",
+			"totalRequestTime": "84",
+			"iterationResults": {}
+		},
+		{
+			"name": "Create comment",
+			"id": "db3efa26-576c-44b0-8a11-7ff0f2e07fe0",
+			"url": "localhost:8080/comment",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"tests": {
+				"Status code is 201": false,
+				"Content-Type is present": false,
+				"Response time is less than 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Content-Type is present": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"5"
+			],
+			"allTests": [
+				{
+					"Status code is 201": false,
+					"Content-Type is present": false,
+					"Response time is less than 200ms": true
+				}
+			],
+			"time": "5",
+			"totalRequestTime": "5",
+			"iterationResults": {}
+		},
+		{
+			"name": "Crear Imagen/picture",
+			"id": "2c2d32dd-5cd2-4547-83ed-bfc6dc077684",
+			"url": "localhost:8080/images",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"tests": {
+				"Status code is 201": false,
+				"Content-Type is present": false
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Content-Type is present": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				"77"
+			],
+			"allTests": [
+				{
+					"Status code is 201": false,
+					"Content-Type is present": false
+				}
+			],
+			"time": "77",
+			"totalRequestTime": "77",
+			"iterationResults": {}
+		},
+		{
+			"name": "Borrar Galería",
+			"id": "ed2baef2-06d8-43c1-9589-524cc56fa1ac",
+			"url": "localhost:8080/gallery/2",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden",
+				"detail": {
+					"name": "Forbidden",
+					"detail": "The request was a legal request, but the server is refusing to respond to it. Unlike a 401 Unauthorized response, authenticating will make no difference."
+				}
+			},
+			"tests": {
+				"Status code is 204": false,
+				"Response time is less than 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"62"
+			],
+			"allTests": [
+				{
+					"Status code is 204": false,
+					"Response time is less than 200ms": true
+				}
+			],
+			"time": "62",
+			"totalRequestTime": "62",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 5,
+	"totalFail": 6,
+	"totalTime": 280,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "Login user",
+			"id": "9e7d8439-49cb-49d8-a4e5-9ff2bc82d92a",
+			"url": "localhost:8080/users/login",
+			"time": "2019-12-15T19:35:36.957Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"To have token": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Update User",
+			"id": "2a480020-ac0b-448f-8136-5c313bca2573",
+			"url": "localhost:8080/users/1",
+			"time": "2019-12-15T19:35:36.957Z",
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Create comment",
+			"id": "db3efa26-576c-44b0-8a11-7ff0f2e07fe0",
+			"url": "localhost:8080/comment",
+			"time": "2019-12-15T19:35:36.957Z",
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Content-Type is present": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Crear Imagen/picture",
+			"id": "2c2d32dd-5cd2-4547-83ed-bfc6dc077684",
+			"url": "localhost:8080/images",
+			"time": "2019-12-15T19:35:36.957Z",
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request",
+				"detail": {
+					"name": "Bad Request",
+					"detail": "The request cannot be fulfilled due to bad syntax."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Content-Type is present": {
+					"pass": 0,
+					"fail": 1
+				}
+			}
+		},
+		{
+			"name": "Borrar Galería",
+			"id": "ed2baef2-06d8-43c1-9589-524cc56fa1ac",
+			"url": "localhost:8080/gallery/2",
+			"time": "2019-12-15T19:35:36.957Z",
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden",
+				"detail": {
+					"name": "Forbidden",
+					"detail": "The request was a legal request, but the server is refusing to respond to it. Unlike a 401 Unauthorized response, authenticating will make no difference."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		}
+	],
+	"synced": false
+}

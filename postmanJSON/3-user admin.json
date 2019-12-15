@@ -1,0 +1,1038 @@
+{
+	"id": "b04bcbe2-7e7a-4198-bfd8-8c5ba4c05e9d",
+	"name": "Image-api",
+	"allTests": [],
+	"timestamp": "2019-12-15T19:25:44.918Z",
+	"collection_id": "7b2bd5b3-e5b5-47c9-b58d-87fa52611091",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "0",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "7b2bd5b3-e5b5-47c9-b58d-87fa52611091",
+		"name": "Image-api",
+		"order": [],
+		"folders_order": [
+			"00bee54c-3edf-47d7-888c-7db01b7e4ed1",
+			"0e030bb4-6326-4626-b845-fc409ef59c7e",
+			"7d77773f-2029-49a0-bcbb-6060510834b3",
+			"ac934299-04ec-4d3c-8d12-c658ca319ac0",
+			"832f947c-a6df-4905-8618-a02255fced3d"
+		],
+		"isFavorite": false
+	},
+	"folder": null,
+	"environment": null,
+	"globals": null,
+	"results": [
+		{
+			"name": "Signup admin",
+			"id": "27b83022-d878-4abc-bc52-8926dab43f10",
+			"url": "localhost:8080/users",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"81"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			],
+			"time": "81",
+			"totalRequestTime": "81",
+			"iterationResults": {}
+		},
+		{
+			"name": "Login admin",
+			"id": "f452519d-2ccd-48b7-b408-f329f8b5cefe",
+			"url": "localhost:8080/users/login",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"To have token": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"To have token": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"68"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"To have token": true
+				}
+			],
+			"time": "68",
+			"totalRequestTime": "68",
+			"iterationResults": {}
+		},
+		{
+			"name": "Get all users",
+			"id": "796e748d-5610-4517-9677-f08f912cc63e",
+			"url": "localhost:8080/users",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type is present": true,
+				"Response time is less than 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"60"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true,
+					"Response time is less than 200ms": true
+				}
+			],
+			"time": "60",
+			"totalRequestTime": "60",
+			"iterationResults": {}
+		},
+		{
+			"name": "Create comment",
+			"id": "db3efa26-576c-44b0-8a11-7ff0f2e07fe0",
+			"url": "localhost:8080/comment",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Content-Type is present": true,
+				"Response time is less than 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"83"
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Content-Type is present": true,
+					"Response time is less than 200ms": true
+				}
+			],
+			"time": "83",
+			"totalRequestTime": "83",
+			"iterationResults": {}
+		},
+		{
+			"name": "Delete Comment",
+			"id": "4280f020-fdb1-4abc-acf4-46eb12385845",
+			"url": "localhost:8080/comment/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"tests": {
+				"Status code is 204": true,
+				"Response time is less than 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"73"
+			],
+			"allTests": [
+				{
+					"Status code is 204": true,
+					"Response time is less than 200ms": true
+				}
+			],
+			"time": "73",
+			"totalRequestTime": "73",
+			"iterationResults": {}
+		},
+		{
+			"name": "Crear Imagen/picture",
+			"id": "2c2d32dd-5cd2-4547-83ed-bfc6dc077684",
+			"url": "localhost:8080/images",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Content-Type is present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"202"
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Content-Type is present": true
+				}
+			],
+			"time": "202",
+			"totalRequestTime": "202",
+			"iterationResults": {}
+		},
+		{
+			"name": "Añadir título y comentario",
+			"id": "0f5a0b7b-c7e4-4a5e-9ccc-03375382f736",
+			"url": "localhost:8080/images/3",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"tests": {
+				"Status code is 204": true,
+				"Response time is less than 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"79"
+			],
+			"allTests": [
+				{
+					"Status code is 204": true,
+					"Response time is less than 200ms": true
+				}
+			],
+			"time": "79",
+			"totalRequestTime": "79",
+			"iterationResults": {}
+		},
+		{
+			"name": "Delete Image/Picture",
+			"id": "6d467623-c686-471c-85e0-f820e3d1b1ab",
+			"url": "localhost:8080/images/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"tests": {
+				"Status code is 204": true,
+				"Response time is less than 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"80"
+			],
+			"allTests": [
+				{
+					"Status code is 204": true,
+					"Response time is less than 200ms": true
+				}
+			],
+			"time": "80",
+			"totalRequestTime": "80",
+			"iterationResults": {}
+		},
+		{
+			"name": "Listar todas las fotos",
+			"id": "b5e64e42-9ebc-4096-848a-5ab868e732ee",
+			"url": "localhost:8080/images",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type is present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"73"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true
+				}
+			],
+			"time": "73",
+			"totalRequestTime": "73",
+			"iterationResults": {}
+		},
+		{
+			"name": "Create Like",
+			"id": "7b51cf11-7a5e-4764-9e31-56d3978ad14a",
+			"url": "localhost:8080/like",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": {
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+				}
+			},
+			"tests": {
+				"Status code is 201": false,
+				"Content-Type is present": false,
+				"Response time is less than 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Content-Type is present": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"84"
+			],
+			"allTests": [
+				{
+					"Status code is 201": false,
+					"Content-Type is present": false,
+					"Response time is less than 200ms": true
+				}
+			],
+			"time": "84",
+			"totalRequestTime": "84",
+			"iterationResults": {}
+		},
+		{
+			"name": "Delete Like (Unlike)",
+			"id": "d7a41a96-7c30-4b0f-ba9f-295e1825584f",
+			"url": "localhost:8080/like/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": {
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+				}
+			},
+			"tests": {
+				"Status code is 204": false,
+				"Response time is less than 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"78"
+			],
+			"allTests": [
+				{
+					"Status code is 204": false,
+					"Response time is less than 200ms": true
+				}
+			],
+			"time": "78",
+			"totalRequestTime": "78",
+			"iterationResults": {}
+		},
+		{
+			"name": "Crear Galería",
+			"id": "6d4cda85-0a2e-4c9b-8d12-276f6a1e4cc1",
+			"url": "localhost:8080/gallery",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Content-Type is present": true,
+				"Response time is less than 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"67"
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Content-Type is present": true,
+					"Response time is less than 200ms": true
+				}
+			],
+			"time": "67",
+			"totalRequestTime": "67",
+			"iterationResults": {}
+		},
+		{
+			"name": "Borrar Galería",
+			"id": "ed2baef2-06d8-43c1-9589-524cc56fa1ac",
+			"url": "localhost:8080/gallery/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden",
+				"detail": {
+					"name": "Forbidden",
+					"detail": "The request was a legal request, but the server is refusing to respond to it. Unlike a 401 Unauthorized response, authenticating will make no difference."
+				}
+			},
+			"tests": {
+				"Status code is 204": false,
+				"Response time is less than 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"60"
+			],
+			"allTests": [
+				{
+					"Status code is 204": false,
+					"Response time is less than 200ms": true
+				}
+			],
+			"time": "60",
+			"totalRequestTime": "60",
+			"iterationResults": {}
+		},
+		{
+			"name": "Añadir foto a una galería",
+			"id": "5d69afc4-1121-4a39-b01a-ee234e86c327",
+			"url": "localhost:8080/gallery/2/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": {
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+				}
+			},
+			"tests": {
+				"Status code is 201": false,
+				"Content-Type is present": false,
+				"Response time is less than 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Content-Type is present": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"64"
+			],
+			"allTests": [
+				{
+					"Status code is 201": false,
+					"Content-Type is present": false,
+					"Response time is less than 200ms": true
+				}
+			],
+			"time": "64",
+			"totalRequestTime": "64",
+			"iterationResults": {}
+		},
+		{
+			"name": "Borrar foto de una galería",
+			"id": "6cdf0a7b-4864-49ae-a17d-240b01608fcb",
+			"url": "localhost:8080/gallery/1/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": {
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+				}
+			},
+			"tests": {
+				"Status code is 204": false,
+				"Response time is less than 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"69"
+			],
+			"allTests": [
+				{
+					"Status code is 204": false,
+					"Response time is less than 200ms": true
+				}
+			],
+			"time": "69",
+			"totalRequestTime": "69",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 27,
+	"totalFail": 7,
+	"totalTime": 1221,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "Signup admin",
+			"id": "27b83022-d878-4abc-bc52-8926dab43f10",
+			"url": "localhost:8080/users",
+			"time": "2019-12-15T19:25:44.918Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Login admin",
+			"id": "f452519d-2ccd-48b7-b408-f329f8b5cefe",
+			"url": "localhost:8080/users/login",
+			"time": "2019-12-15T19:25:44.918Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"To have token": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Get all users",
+			"id": "796e748d-5610-4517-9677-f08f912cc63e",
+			"url": "localhost:8080/users",
+			"time": "2019-12-15T19:25:44.918Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Create comment",
+			"id": "db3efa26-576c-44b0-8a11-7ff0f2e07fe0",
+			"url": "localhost:8080/comment",
+			"time": "2019-12-15T19:25:44.918Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Delete Comment",
+			"id": "4280f020-fdb1-4abc-acf4-46eb12385845",
+			"url": "localhost:8080/comment/1",
+			"time": "2019-12-15T19:25:44.918Z",
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Crear Imagen/picture",
+			"id": "2c2d32dd-5cd2-4547-83ed-bfc6dc077684",
+			"url": "localhost:8080/images",
+			"time": "2019-12-15T19:25:44.918Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Añadir título y comentario",
+			"id": "0f5a0b7b-c7e4-4a5e-9ccc-03375382f736",
+			"url": "localhost:8080/images/3",
+			"time": "2019-12-15T19:25:44.918Z",
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Delete Image/Picture",
+			"id": "6d467623-c686-471c-85e0-f820e3d1b1ab",
+			"url": "localhost:8080/images/1",
+			"time": "2019-12-15T19:25:44.918Z",
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Listar todas las fotos",
+			"id": "b5e64e42-9ebc-4096-848a-5ab868e732ee",
+			"url": "localhost:8080/images",
+			"time": "2019-12-15T19:25:44.918Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Create Like",
+			"id": "7b51cf11-7a5e-4764-9e31-56d3978ad14a",
+			"url": "localhost:8080/like",
+			"time": "2019-12-15T19:25:44.918Z",
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": {
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Content-Type is present": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Delete Like (Unlike)",
+			"id": "d7a41a96-7c30-4b0f-ba9f-295e1825584f",
+			"url": "localhost:8080/like/1",
+			"time": "2019-12-15T19:25:44.918Z",
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": {
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Crear Galería",
+			"id": "6d4cda85-0a2e-4c9b-8d12-276f6a1e4cc1",
+			"url": "localhost:8080/gallery",
+			"time": "2019-12-15T19:25:44.918Z",
+			"responseCode": {
+				"code": 201,
+				"name": "Created",
+				"detail": {
+					"name": "Created",
+					"detail": "The request has been fulfilled and resulted in a new resource being created."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Borrar Galería",
+			"id": "ed2baef2-06d8-43c1-9589-524cc56fa1ac",
+			"url": "localhost:8080/gallery/1",
+			"time": "2019-12-15T19:25:44.918Z",
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden",
+				"detail": {
+					"name": "Forbidden",
+					"detail": "The request was a legal request, but the server is refusing to respond to it. Unlike a 401 Unauthorized response, authenticating will make no difference."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Añadir foto a una galería",
+			"id": "5d69afc4-1121-4a39-b01a-ee234e86c327",
+			"url": "localhost:8080/gallery/2/1",
+			"time": "2019-12-15T19:25:44.918Z",
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": {
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Content-Type is present": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Borrar foto de una galería",
+			"id": "6cdf0a7b-4864-49ae-a17d-240b01608fcb",
+			"url": "localhost:8080/gallery/1/1",
+			"time": "2019-12-15T19:25:44.918Z",
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": {
+					"name": "Not Found",
+					"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		}
+	],
+	"synced": false
+}
