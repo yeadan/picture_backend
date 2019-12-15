@@ -9,6 +9,6 @@ __4-user con fallos__: Prueba de fallos con usuario "user". Los cuatro fallos co
 1. Intentar editar su password con menos letras de las permitidas -> __BadRequest__  
 2. Crear un comentario con un JSON mal construido -> __BadRequest__  
 3. Crear una imagen con un archivo que no es una tipo imagen -> __BadRequest__  
-4. Borrar una galería que no es suya __Forbidden__  
+4. Borrar una galería que no es suya -> __Forbidden__  
 
 __Por último__, en la carpeta "__Collection empleada__" está el export con todas las pruebas utilizadas para testear la api  
