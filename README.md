@@ -35,7 +35,7 @@ Perfiles de usuario con roles (anonymous/user/admin)
 #### Roles  
 __admin__: Tiene control sobre todo, menos para crear contenido como si fuera otro usuario. Puede borrar y editar lo que suben los demás.  
 __user__: No puede listar todos los usuarios ni borrar o editar el contenido de los otros usuarios.  
-__anonymous(u otros)__: Usuario de prueba. Solamente puede editar su propia información, ver todas las fotos y ver los detalles de una foto concreta.  
+__anonymous(u otros)__: Usuario de prueba. Solamente puede editar su propia información, ver todas las fotos, ver los detalles de una foto concreta y buscar las fotos de un usuario.  
 
 ### Images/pictures  
 Estructura de las imágenes, con sus metadatos (picture) y donde están almacenadas (image)
