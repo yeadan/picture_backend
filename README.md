@@ -7,9 +7,9 @@ Directorio public con la __primera__ versión del Front no utilizado.
   "[github.com/jinzhu/gorm](https://github.com/jinzhu/gorm)" - ORM para Postgres  
   "[github.com/gorilla/mux](https://github.com/gorilla/mux)" - Router  
   "[github.com/patrickmn/go-cache](https://github.com/patrickmn/go-cache)" - cache de llave/valor utilizada para almacenar usuarios y tokens HMAC  
-  "[github.com/asaskevich/govalidator](https://github.com/asaskevich/govalidator)" - Validador de estructuras, utiizado solo para los users  
+  "[github.com/asaskevich/govalidator](https://github.com/asaskevich/govalidator)" - Validador de estructuras, utilizado solo para los users  
   "[github.com/graux/image-manager](https://github.com/graux/image-manager)" Mini librería para preparar imágenes en JPEG  
-  "[github.com/joho/godotenv](https://github.com/joho/godotenv)" - Load .env variable
+  "[github.com/joho/godotenv](https://github.com/joho/godotenv)" - Cargar archivo .env
   
 
 __.env utilizado para curso backend PalmaActiva__  
