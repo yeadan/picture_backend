@@ -174,8 +174,9 @@ func signup(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	//Lo devolvemos en JSON
+	w.Header().Set("Location", fmt.Sprint("/signup"))
 	w.Header().Add("Content-Type", "aplication/json")
-	w.WriteHeader(http.StatusOK)
+	w.WriteHeader(http.StatusCreated)
 	w.Write(responseBytes)
 
 }
