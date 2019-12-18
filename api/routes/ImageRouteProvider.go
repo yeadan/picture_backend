@@ -151,7 +151,7 @@ func createImageAvatar(w http.ResponseWriter, r *http.Request) {
 					jsonUse, _ = json.Marshal(user)
 					w.Write(jsonUse)
 				} else {
-					w.WriteHeader(http.StatusBadRequest)
+					w.WriteHeader(http.StatusInternalServerError)
 				}
 			} else {
 				w.WriteHeader(http.StatusForbidden)
@@ -235,7 +235,7 @@ func createImage(w http.ResponseWriter, r *http.Request) {
 					w.Write(jsonUse)
 
 				} else {
-					w.WriteHeader(http.StatusBadRequest)
+					w.WriteHeader(http.StatusInternalServerError)
 				}
 			} else {
 				w.WriteHeader(http.StatusForbidden)
