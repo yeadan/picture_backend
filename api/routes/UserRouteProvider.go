@@ -133,18 +133,21 @@ func signup(w http.ResponseWriter, r *http.Request) {
 	jsonBytes, err := ioutil.ReadAll(r.Body)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
+		w.Write([]byte("Error leyendo el body"))
 		return
 	}
 	// Miramos que el usuario sea un json válido
 	user := models.NewUserJSON(jsonBytes)
 	if user == nil {
 		w.WriteHeader(http.StatusBadRequest)
+		w.Write([]byte("Error de composición de JSON"))
 		return
 	}
 	//Comprobamos validación con govalidator
 	//Algunos campos requieren longitudes máximas y mínimas
 	if !user.Valid() {
 		w.WriteHeader(http.StatusBadRequest)
+		w.Write([]byte("Error en la validación del usuario"))
 		return
 	}
 
@@ -187,18 +190,21 @@ func login(w http.ResponseWriter, r *http.Request) {
 	jsonBytes, err := ioutil.ReadAll(r.Body)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
+		w.Write([]byte("Error leyendo el body"))
 		return
 	}
 	// Miramos que la credencial sea un json válido
 	cred := models.NewCredentialsJSON(jsonBytes)
 	if cred == nil {
 		w.WriteHeader(http.StatusBadRequest)
+		w.Write([]byte("Error de composición de JSON"))
 		return
 	}
 	//Validamos el user y pass con govalidator
 	//En principio no haría falta porque se hace en el signup
 	if !cred.Valid() {
 		w.WriteHeader(http.StatusBadRequest)
+		w.Write([]byte("Error en la validación del usuario"))
 		return
 	}
 	//Conectamos con la base de datos
