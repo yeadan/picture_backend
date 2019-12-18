@@ -11,4 +11,6 @@ __4-user con fallos__: Prueba de fallos con usuario "user". Los cuatro fallos co
 3. Crear una imagen con un archivo que no es una tipo imagen -> __BadRequest__  
 4. Borrar una galería que no es suya -> __Forbidden__  
 
-__Por último__, en la carpeta "__Collection empleada__" está el export con todas las pruebas utilizadas para testear la api  
+Por último, en la carpeta "__Collection empleada__" está el export con todas las pruebas utilizadas para testear la api  
+
+__Actualización 18-12-2019__: Actualizado el código del signup para que devuelva un __201__ (StatusCreated) en vez de un __200__ (StatusOK), así que debería fallar ese test al crear un usuario.
