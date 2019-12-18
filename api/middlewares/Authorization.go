@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/yeadan/proyect-image/api/data"
-	"github.com/yeadan/proyect-image/lib"
+	"github.com/yeadan/picture_backend/api/data"
+	"github.com/yeadan/picture_backend/lib"
 )
 
 var UserKey = "current_user"

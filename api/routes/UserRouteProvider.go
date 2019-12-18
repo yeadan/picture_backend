@@ -9,10 +9,10 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
-	"github.com/yeadan/proyect-image/api/data"
-	"github.com/yeadan/proyect-image/api/middlewares"
-	"github.com/yeadan/proyect-image/api/models"
-	"github.com/yeadan/proyect-image/lib"
+	"github.com/yeadan/picture_backend/api/data"
+	"github.com/yeadan/picture_backend/api/middlewares"
+	"github.com/yeadan/picture_backend/api/models"
+	"github.com/yeadan/picture_backend/lib"
 )
 
 // GetRoutesUsers contiene las rutas del "usuario"

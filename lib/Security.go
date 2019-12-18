@@ -11,8 +11,8 @@ import (
 	"net/http"
 
 	"github.com/jinzhu/gorm"
-	"github.com/yeadan/proyect-image/api/data"
-	"github.com/yeadan/proyect-image/api/models"
+	"github.com/yeadan/picture_backend/api/data"
+	"github.com/yeadan/picture_backend/api/models"
 )
 
 

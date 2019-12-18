@@ -6,9 +6,9 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/urfave/negroni"
 
-	"github.com/yeadan/proyect-image/api/data"
-	"github.com/yeadan/proyect-image/api/middlewares"
-	"github.com/yeadan/proyect-image/api/routes"
+	"github.com/yeadan/picture_backend/api/data"
+	"github.com/yeadan/picture_backend/api/middlewares"
+	"github.com/yeadan/picture_backend/api/routes"
 )
 
 func main() {

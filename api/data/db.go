@@ -7,7 +7,7 @@ import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/joho/godotenv"
-	"github.com/yeadan/proyect-image/api/models"
+	"github.com/yeadan/picture_backend/api/models"
 )
 
 // InitEnv Inicializa el .env para poder leerlo y creamos directorios
