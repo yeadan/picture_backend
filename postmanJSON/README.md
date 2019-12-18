@@ -13,4 +13,4 @@ __4-user con fallos__: Prueba de fallos con usuario "user". Los cuatro fallos co
 
 Por último, en la carpeta "__Collection empleada__" está el export con todas las pruebas utilizadas para testear la api  
 
-__Actualización 18-12-2019__: Actualizado el código del signup para que devuelva un __201__ (StatusCreated) en vez de un __200__ (StatusOK), así que debería fallar ese test al crear un usuario.
+__Actualización 18-12-2019__: Modificado el código del signup para que devuelva un __201__ (StatusCreated) en vez de un __200__ (StatusOK), así que debería fallar ese test al crear un usuario.
