@@ -84,9 +84,11 @@ func createComment(w http.ResponseWriter, r *http.Request) {
 				}
 			} else {
 				w.WriteHeader(http.StatusBadRequest)
+				w.Write([]byte("El body no contiene un JSON válido"))
 			}
 		} else {
 			w.WriteHeader(http.StatusBadRequest)
+			w.Write([]byte("Error leyendo el body"))
 		}
 	}
 }
@@ -111,9 +113,11 @@ func editComment(w http.ResponseWriter, r *http.Request) {
 							w.WriteHeader(http.StatusNoContent)
 						} else {
 							w.WriteHeader(http.StatusBadRequest)
+							w.Write([]byte("El body no contiene un JSON válido"))
 						}
 					} else {
 						w.WriteHeader(http.StatusBadRequest)
+						w.Write([]byte("Error leyendo el body"))
 					}
 				} else {
 					w.WriteHeader(http.StatusForbidden)

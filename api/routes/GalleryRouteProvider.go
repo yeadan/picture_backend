@@ -79,9 +79,11 @@ func editGallery(w http.ResponseWriter, r *http.Request) {
 							w.WriteHeader(http.StatusNoContent)
 						} else {
 							w.WriteHeader(http.StatusBadRequest)
+							w.Write([]byte("El body no contiene un JSON válido"))
 						}
 					} else {
 						w.WriteHeader(http.StatusBadRequest)
+						w.Write([]byte("Error leyendo el body"))
 					}
 				} else {
 					w.WriteHeader(http.StatusForbidden)
@@ -221,9 +223,11 @@ func createGallery(w http.ResponseWriter, r *http.Request) {
 				}
 			} else {
 				w.WriteHeader(http.StatusBadRequest)
+				w.Write([]byte("El body no contiene un JSON válido"))
 			}
 		} else {
 			w.WriteHeader(http.StatusBadRequest)
+			w.Write([]byte("Error leyendo el body"))
 		}
 	}
 }

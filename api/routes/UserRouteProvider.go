@@ -62,7 +62,7 @@ func updateUser(w http.ResponseWriter, r *http.Request) {
 					}
 				} else {
 					w.WriteHeader(http.StatusBadRequest)
-					w.Write([]byte("Error en el body"))
+					w.Write([]byte("Error leyendo el body"))
 				}
 			} else {
 				w.WriteHeader(http.StatusNotFound)

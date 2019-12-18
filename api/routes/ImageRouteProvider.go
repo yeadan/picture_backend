@@ -114,10 +114,6 @@ func createImageAvatar(w http.ResponseWriter, r *http.Request) {
 			if errAuth == nil {
 				db, _ := data.ConnectDB()
 				imagesPath := "./images/avatars"
-				if err != nil {
-					w.WriteHeader(http.StatusBadRequest)
-					return
-				}
 				imgManager := image_manger.NewImageManager(imagesPath)
 				var uuids []uuid.UUID
 				uuids, err = imgManager.ProcessImageAsSquare(jsonBytes)
@@ -158,6 +154,7 @@ func createImageAvatar(w http.ResponseWriter, r *http.Request) {
 			}
 		} else {
 			w.WriteHeader(http.StatusBadRequest)
+			w.Write([]byte("Error leyendo el body"))
 		}
 	}
 }
@@ -203,10 +200,6 @@ func createImage(w http.ResponseWriter, r *http.Request) {
 			if errAuth == nil {
 				db, _ := data.ConnectDB()
 				imagesPath := "./images"
-				if err != nil {
-					w.WriteHeader(http.StatusBadRequest)
-					return
-				}
 				imgManager := image_manger.NewImageManager(imagesPath)
 				var uuids []uuid.UUID
 				uuids, err = imgManager.ProcessImageAs16by9(jsonBytes)
@@ -243,6 +236,7 @@ func createImage(w http.ResponseWriter, r *http.Request) {
 
 		} else {
 			w.WriteHeader(http.StatusBadRequest)
+			w.Write([]byte("Error leyendo el body"))
 		}
 	}
 }
@@ -269,9 +263,11 @@ func editImage(w http.ResponseWriter, r *http.Request) {
 							w.WriteHeader(http.StatusNoContent)
 						} else {
 							w.WriteHeader(http.StatusBadRequest)
+							w.Write([]byte("El body no contiene un JSON válido"))
 						}
 					} else {
 						w.WriteHeader(http.StatusBadRequest)
+						w.Write([]byte("Error leyendo el body"))
 					}
 				} else {
 					w.WriteHeader(http.StatusForbidden)

@@ -89,9 +89,11 @@ func createLike(w http.ResponseWriter, r *http.Request) {
 				}
 			} else {
 				w.WriteHeader(http.StatusBadRequest)
+				w.Write([]byte("El body no contiene un JSON válido"))
 			}
 		} else {
 			w.WriteHeader(http.StatusBadRequest)
+			w.Write([]byte("Error leyendo el body"))
 		}
 	}
 }
