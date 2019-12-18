@@ -56,7 +56,7 @@ func createComment(w http.ResponseWriter, r *http.Request) {
 		if err == nil {
 			comment := new(models.Comment)
 			err := json.Unmarshal(jsonBytes, comment)
-			if err == nil { //&& task.Valid() {
+			if err == nil {
 				errAuth := lib.UserAllowed(userValid.(*models.User), nil, lib.GetString("user"), w)
 				if errAuth == nil {
 					comment.UserID = userValid.(*models.User).UserID
@@ -83,7 +83,7 @@ func createComment(w http.ResponseWriter, r *http.Request) {
 					w.WriteHeader(http.StatusForbidden)
 				}
 			} else {
-				w.WriteHeader(http.StatusBadRequest)
+				w.WriteHeader(http.StatusInternalServerError)
 			}
 		} else {
 			w.WriteHeader(http.StatusBadRequest)
@@ -105,12 +105,12 @@ func editComment(w http.ResponseWriter, r *http.Request) {
 					if err == nil {
 						edited := new(models.Comment)
 						err := json.Unmarshal(jsonBytes, edited)
-						if err == nil { //&& task.Valid() {
+						if err == nil {
 							comment.Comment = edited.Comment
 							models.EditComment(comment, db)
 							w.WriteHeader(http.StatusNoContent)
 						} else {
-							w.WriteHeader(http.StatusBadRequest)
+							w.WriteHeader(http.StatusInternalServerError)
 						}
 					} else {
 						w.WriteHeader(http.StatusBadRequest)
