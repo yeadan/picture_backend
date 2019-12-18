@@ -83,7 +83,7 @@ func createComment(w http.ResponseWriter, r *http.Request) {
 					w.WriteHeader(http.StatusForbidden)
 				}
 			} else {
-				w.WriteHeader(http.StatusInternalServerError)
+				w.WriteHeader(http.StatusBadRequest)
 			}
 		} else {
 			w.WriteHeader(http.StatusBadRequest)
@@ -110,7 +110,7 @@ func editComment(w http.ResponseWriter, r *http.Request) {
 							models.EditComment(comment, db)
 							w.WriteHeader(http.StatusNoContent)
 						} else {
-							w.WriteHeader(http.StatusInternalServerError)
+							w.WriteHeader(http.StatusBadRequest)
 						}
 					} else {
 						w.WriteHeader(http.StatusBadRequest)
